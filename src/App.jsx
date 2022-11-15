@@ -1,5 +1,5 @@
 import { Header } from './components/header/Header';
-import { Post } from './Post';
+import { Post } from './components/post/Post';
 
 import styles from './App.module.css';
 
@@ -24,12 +24,6 @@ function App() {
             content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet placeat veniam ex a culpa impedit! Vitae, delectus, totam quia officia sunt assumenda at, ducimus repellat temporibus iusto libero odit cupiditate."
             
           />
-        
-
-          <Post 
-              author="Luana Morais"
-              content="Lorem ipsum POST."
-            />
         </main>
         
 
