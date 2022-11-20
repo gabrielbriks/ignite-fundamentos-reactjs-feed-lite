@@ -22,7 +22,10 @@ function App() {
           <Post 
             author="Gabriel Morais"
             content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet placeat veniam ex a culpa impedit! Vitae, delectus, totam quia officia sunt assumenda at, ducimus repellat temporibus iusto libero odit cupiditate."
-            
+          />
+          <Post 
+            author="Gabriel Morais"
+            content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet placeat veniam ex a culpa impedit! Vitae, delectus, totam quia officia sunt assumenda at, ducimus repellat temporibus iusto libero odit cupiditate."
           />
         </main>
         
