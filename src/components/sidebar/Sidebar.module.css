@@ -16,16 +16,6 @@
   align-items: center;
 }
 
-.avatar {
-  box-sizing: initial; /*ele faz ao contrario do border-box, quem em vez de espremer o conteudo, ele adiciona o que tiver ao redor como a mais*/
-  width: 3rem;
-  height: 3rem;
-  border-radius: 8px;
-  border: 4px solid var(--gray-800);
-  outline: 2px solid var(--green-500); /*Adiciona contorno ao redor da border já existente*/
-  margin-top: -2rem;
-}
-
 .profile strong {
   margin-top: 1rem;
   color: var(--gray-100);
