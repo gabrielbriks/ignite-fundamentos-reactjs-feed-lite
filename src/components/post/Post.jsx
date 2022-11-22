@@ -3,7 +3,15 @@ import { Avatar } from '../avatar/Avatar';
 import { Comment } from '../comment/Comment';
 import styles from './Post.module.css';
 
+//# O que um post vai ter inicialmente??
+//author: { avatar_url: "", name: "", role: "}
+//publishedAt: Date
+//content: String
+
 export function Post(props) {
+
+  console.log(props);
+  
   return (
     <article className={styles.post}>
 
