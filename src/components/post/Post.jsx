@@ -3,44 +3,60 @@ import { Avatar } from '../avatar/Avatar';
 import { Comment } from '../comment/Comment';
 import styles from './Post.module.css';
 
+import { format, formatDistanceToNow } from 'date-fns';
+import ptBR from 'date-fns/locale/pt-BR';
+
 //# O que um post vai ter inicialmente??
 //author: { avatar_url: "", name: "", role: "}
 //publishedAt: Date
 //content: String
 
-export function Post(props) {
+export function Post({ author, publishedAt, content }) {
 
-  console.log(props);
-  
+  const publishedDateFormat = format(publishedAt, "d 'de' LLLL 'às' HH:mm'h' ", {
+    locale: ptBR
+  });
+
+  const publishedDateRealtiveToNow = formatDistanceToNow(publishedAt, {
+    locale: ptBR,
+    addSuffix: true
+  });
+
+
   return (
     <article className={styles.post}>
 
       <header>
         <div className={styles.author}>
-          <Avatar src="https://github.com/gabrielbriks.png" />
+          <Avatar src={author.avatarUrl} />
           <div className={styles.authorInfo}>
-            <strong>Gabriel Morais</strong>
-            <span>Web Developer</span>
+            <strong>{author.name}</strong>
+            <span>{author.role}</span>
           </div>
         </div>
 
-        <time title='Publicado em 14-11-2022' dateTime='2022-11-14 19:00:12'>Publicado a 1h</time>
+        <time title={publishedDateFormat} dateTime={publishedAt.toISOString()}>
+          {publishedDateRealtiveToNow}
+        </time>
       </header>
-      
+
       <div className={styles.content}>
-        <p>Fala galera! 👋 </p>
-        <p>Acabei de subir mais um projeto no meu portifolio. É um projeto pessoal que fiz com ReactJS</p>
-        <p> 👉 <a href="">gabriel.design/projeto-react</a></p>
-        <p>
-          <a href="">#novoprojeto</a>{' '}
-          <a href="">#nlw</a>{' '}
-          <a href="">#dev</a>{' '}
-        </p>
+        {
+          content.map(line => {
+            if(line.type === 'paragraph') {
+              return <p>{line.content}</p>
+            }
+            else if(line.type === 'link'){
+              return <p><a href=''>{line.content}</a></p>              
+            }
+          })
+        }
+        
       </div>
 
       <form className={styles.commentForm}>
         <strong>Deixe seu feedback</strong>
-        <textarea 
+        <textarea
           placeholder="Deixe um comentário ... "
         />
 
